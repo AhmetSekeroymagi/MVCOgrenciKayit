@@ -1,0 +1,32 @@
+﻿@model MVCOgrenciKayit.Models.Ogr
+
+@{
+    ViewBag.Title = "Öğrenci Detayları";
+}
+
+<h2>Öğrenci Detayları</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.OgrAd)</dt>
+        <dd>@Html.DisplayFor(model => model.OgrAd)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.OgrSoyad)</dt>
+        <dd>@Html.DisplayFor(model => model.OgrSoyad)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.OgrMail)</dt>
+        <dd>@Html.DisplayFor(model => model.OgrMail)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.OgrFotoğraf)</dt>
+        <dd>@Html.DisplayFor(model => model.OgrFotoğraf)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.OgrAdres)</dt>
+        <dd>@Html.DisplayFor(model => model.OgrAdres)</dd>
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.OgrId }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Öğrenci Listesine Dön", "Index", null, new { @class = "btn btn-secondary" })
+</p>

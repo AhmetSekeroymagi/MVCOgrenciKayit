@@ -1,0 +1,73 @@
+﻿@model MVCOgrenciKayit.Models.Ogr
+
+@{
+    ViewBag.Title = "Öğrenci Düzenleme Ekranı";
+}
+
+<h2>Öğrenci Düzenleme Ekranı</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal mb-3">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.OgrId)
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.OgrAd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OgrAd, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Ad", Required = "" } })
+                @Html.ValidationMessageFor(model => model.OgrAd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.OgrSoyad, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OgrSoyad, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Soyad ", Required = "" } })
+                @Html.ValidationMessageFor(model => model.OgrSoyad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.OgrMail, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OgrMail, new { htmlAttributes = new { @class = "form-control" , PlaceHolder = "Mail", Required = "" } })
+                @Html.ValidationMessageFor(model => model.OgrMail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.OgrFotoğraf, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OgrFotoğraf, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Fotoğraf", Required = "" } })
+                @Html.ValidationMessageFor(model => model.OgrFotoğraf, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.OgrAdres, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OgrAdres, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Adres", Required = "" } })
+                @Html.ValidationMessageFor(model => model.OgrAdres, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Öğrenci Listesine Git", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

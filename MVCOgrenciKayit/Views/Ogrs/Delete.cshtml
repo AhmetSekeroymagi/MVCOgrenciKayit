@@ -1,0 +1,61 @@
+﻿@model MVCOgrenciKayit.Models.Ogr
+
+@{
+    ViewBag.Title = "Öğrenci Silme";
+}
+
+<h2>Öğrenci Silme</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrAd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OgrAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrSoyad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OgrSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrMail)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OgrMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrFotoğraf)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OgrFotoğraf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OgrAdres)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.OgrAdres)
+        </dd>
+    </dl>
+    s
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" />
+        </div>
+        <br />
+        <div>
+            @Html.ActionLink("Öğrenci Listesine Git", "Index", null, new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

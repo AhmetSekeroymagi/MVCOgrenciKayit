@@ -1,0 +1,138 @@
+﻿@model IEnumerable<MVCOgrenciKayit.Models.Ogr>
+
+@{
+    ViewBag.Title = "Öğrenci Listesi";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        color: #00ffff;
+        text-shadow: 0 0 10px #00ffff;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-edit {
+        background-color: #007bff;
+    }
+
+        .btn-edit:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-details {
+        background-color: #17a2b8;
+    }
+
+        .btn-details:hover {
+            background-color: #117a8b;
+        }
+
+    .btn-delete {
+        background-color: #dc3545;
+    }
+
+        .btn-delete:hover {
+            background-color: #a71d2a;
+        }
+
+    .custom-table {
+        background-color: rgba(0, 0, 0, 0.4);
+        color: #ffffff;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+        backdrop-filter: blur(5px);
+    }
+
+        .custom-table .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .custom-table .table th,
+            .custom-table .table td {
+                border: 1px solid #444;
+                padding: 10px;
+                text-align: center;
+            }
+
+            .custom-table .table th {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #66d9ef;
+            }
+
+            .custom-table .table tr:hover {
+                background-color: rgba(255, 255, 255, 0.08);
+            }
+
+    .action-links {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .top-link {
+        margin-bottom: 15px;
+    }
+
+        .top-link a {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .top-link a:hover {
+                background-color: #218838;
+            }
+</style>
+
+<h2>Öğrenci Listesi</h2>
+
+<p class="top-link">
+    @Html.ActionLink("Yeni Kayıt", "Create")
+</p>
+
+<div class="custom-table">
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.OgrAd)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrSoyad)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrMail)</th>
+            <th>@Html.DisplayNameFor(model => model.OgrAdres)</th>
+            <th>İşlemler</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.OgrAd)</td>
+                <td>@Html.DisplayFor(modelItem => item.OgrSoyad)</td>
+                <td>@Html.DisplayFor(modelItem => item.OgrMail)</td>
+                <td>@Html.DisplayFor(modelItem => item.OgrAdres)</td>
+                <td class="action-links">
+                    <a href="@Url.Action("Edit", new { id = item.OgrId })" class="btn btn-edit">Düzenle</a>
+                    <a href="@Url.Action("Details", new { id = item.OgrId })" class="btn btn-details">Detaylar</a>
+                    <a href="@Url.Action("Delete", new { id = item.OgrId })" class="btn btn-delete">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
